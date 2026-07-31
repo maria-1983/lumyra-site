@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #f5efe6;
+  background: linear-gradient(135deg, #050505 0%, #111111 45%, #1b0d12 100%);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(200, 162, 74, 0.16), transparent 24%),
+    radial-gradient(circle at 85% 10%, rgba(122, 15, 45, 0.28), transparent 24%),
+    linear-gradient(135deg, #050505 0%, #0d0d0d 40%, #16090f 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+  mix-blend-mode: screen;
+  transform: translateX(-20%);
+  animation: shimmer 10s linear infinite;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #c8a24a;
+  color: #050505;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@layer components {
+  .premium-shell {
+    @apply rounded-[2rem] border border-gold/30 bg-[linear-gradient(135deg,rgba(200,162,74,0.12),rgba(10,10,10,0.96)_55%,rgba(122,15,45,0.2))] shadow-[0_0_80px_rgba(200,162,74,0.12)] backdrop-blur-xl;
+  }
+
+  .premium-panel {
+    @apply rounded-[1.5rem] border border-white/10 bg-black/70 shadow-[0_0_35px_rgba(200,162,74,0.08)] backdrop-blur-sm;
+  }
+
+  .premium-pill {
+    @apply inline-flex items-center rounded-full border border-gold/40 bg-[linear-gradient(90deg,rgba(200,162,74,0.16),rgba(122,15,45,0.18))] px-4 py-2 text-sm uppercase tracking-[0.35em] text-gold shadow-[0_0_20px_rgba(200,162,74,0.12)];
+  }
+
+  .ruby-btn {
+    @apply rounded-full bg-[linear-gradient(135deg,#8d153c_0%,#7a0f2d_100%)] px-6 py-3 font-medium text-mist shadow-[0_0_25px_rgba(122,15,45,0.35)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_35px_rgba(122,15,45,0.5)];
+  }
+
+  .gold-link {
+    @apply transition duration-300 hover:text-gold;
+  }
+}
