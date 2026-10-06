@@ -1,8 +1,11 @@
+import Header from './components/Header'
+
 function App() {
   return (
     <div>
+      <Header />
+
       <h1>LUMYRA funcionando!</h1>
-      <p>O site está carregando corretamente.</p>
     </div>
   )
 }
